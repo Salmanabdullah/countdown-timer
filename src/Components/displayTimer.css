@@ -1,0 +1,12 @@
+#displayTimer{
+    background-color: aqua;
+    margin: 20px 100px;
+    height: 26em;
+}
+span{
+    font-size: 15em;
+    padding: 30px;
+}
+#colon{
+    font-size: 10em;
+}
