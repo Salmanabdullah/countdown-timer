@@ -1,12 +1,15 @@
-#displayTimer{
-    background-color: aqua;
-    margin: 20px 100px;
-    height: 26em;
+#timeContainer{
+    margin-top: 2%;
 }
-span{
+#displayTime{
+    background-color: rgb(117, 214, 214);
+    margin: 10px 60px;
+    height: 26em;
+    text-align: center;
+    padding:  0px 30px 20px 30px;
     font-size: 15em;
-    padding: 30px;
+    border-radius: 15px;
 }
 #colon{
-    font-size: 10em;
+    font-size: 5em;
 }

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import './displayTimer.css'
 
 const DisplayTimer = ({ initialTimeInSeconds, onTimerExpire }) => {
   const [countdownTime, setCountdownTime] = useState(initialTimeInSeconds);
@@ -26,10 +27,10 @@ const DisplayTimer = ({ initialTimeInSeconds, onTimerExpire }) => {
   const seconds = countdownTime % 60;
 
   return (
-    <div>
-      <div>
-        {formatTime(minutes)}:{formatTime(seconds)}
-      </div>
+    <div id="timeContainer">
+      <span id="displayTime">{formatTime(minutes)}</span>
+      <span id="colon">:</span>
+      <span id="displayTime">{formatTime(seconds)}</span>
     </div>
   );
 };

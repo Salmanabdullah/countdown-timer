@@ -12,17 +12,20 @@ const Header = () => {
   /************* When times expires **************/
   const handleTimerExpire = () => {
     setTimerExpired(true);
-    let sound = new Audio(soundAlert);
-    sound.play().catch((error) => {
-      console.error("Error playing audio:", error);
-    });
+
     if (inputTimes > 0) {
       setInputTimes(inputTimes - 1);
+      let sound = new Audio(soundAlert);
+      sound.play().catch((error) => {
+        console.error("Error playing audio:", error);
+      });
       handleStartTimer();
     }
-    if (inputTimes === 0) {
-      setTimerExpired(true);
+    /********when inputTimes become zero **********/
+    if (inputTimes === 1) {
+      setTimerExpired(true)
     }
+    
   };
   /************* Countdown starts **************/
   const handleStartTimer = () => {
@@ -35,6 +38,7 @@ const Header = () => {
       alert("Please enter valid values for minutes and repeat.");
       return;
     }
+    
     setTimerExpired(false); // Reset the timer when starting
     setTimerKey(timerKey + 1);
   };
@@ -50,7 +54,7 @@ const Header = () => {
   };
 
   return (
-    <div>
+    <div id="container">
       <section>
         Minutes:{" "}
         <input
@@ -82,12 +86,16 @@ const Header = () => {
           <div>
             <DisplayTimer
               key={timerKey}
-              initialTimeInSeconds={inputMinutes}
+              initialTimeInSeconds={inputMinutes*60}
               onTimerExpire={handleTimerExpire}
             />
           </div>
         ) : (
-          <p></p>
+          <div id="timeContainer">
+            <span id="displayTime">00</span>
+            <span id="colon">:</span>
+            <span id="displayTime">00</span>
+          </div>
         )}
       </div>
     </div>
